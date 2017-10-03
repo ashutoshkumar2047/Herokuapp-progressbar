@@ -1,0 +1,26 @@
+
+{{#each bars as |bar index|}}
+<div class="meter animate" id="bar_{{index}}">
+    {{#if (gte bar.percentageValue 100)}}
+    <span style="width:100%;"><span style="width:100%;text-align:center;">{{bar.percentageValue}}%</span></span>
+    {{else}}
+    <span style="width:{{bar.percentageValue}}%;"><span style="width:100%;text-align:center;">{{bar.percentageValue}}%  </span></span>
+    {{/if}}
+</div>
+{{/each}}
+
+<div>
+<label for="barSelectBox" text="Select Progress Bar"></label>
+{{uic-select selected=selectedBarIndex options=barIdentifiers}}
+
+</div>
+
+<div class="button_bar">
+{{#each model.buttons as |button index|}}
+{{#if (gte button 0)}}
+{{uic-button text=button click=(action "updateProgressBar" button) class="green"}}
+{{else}}
+{{uic-button text=button click=(action "updateProgressBar" button) class="red"}}
+{{/if}}
+{{/each}}
+</div>
