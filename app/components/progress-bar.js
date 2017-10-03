@@ -6,7 +6,8 @@ export default Ember.Component.extend({
     this._super(arguments);
     let config = this.get('model'), bars=Ember.A(), barIdentifiers= Ember.A();
     config.bars.forEach((bar, index)=>{
-      bars.pushObject(this.get('store').createRecord('bar', {uniqueId: index+1, value:bar, limit:config.limit}));
+      var limitExceeds = bar > config.limit ? true : false;
+      bars.pushObject(this.get('store').createRecord('bar', {uniqueId: index+1, value:bar, limit:config.limit, isExceedLimit:limitExceeds}));
       barIdentifiers.pushObject(Ember.Object.create({text:'Progress Bar: #'+(index+1), value:index+1}));
     });
 

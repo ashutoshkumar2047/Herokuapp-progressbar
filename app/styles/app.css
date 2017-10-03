@@ -25,6 +25,18 @@
 			-moz-box-shadow   : inset 0 -1px 1px rgba(255,255,255,0.3);
 			box-shadow        : inset 0 -1px 1px rgba(255,255,255,0.3);
 		}
+		.meter > span .col-red {
+			width: 100%;
+			text-align: center;
+			background-color: #FF0202;
+			color: #FFF;
+		}
+		.meter > span .col-green {
+			width: 100%;
+			text-align: center;
+			background-color: #11D232;
+			color: #FFF;
+		}
 		.meter > span {
 			display: block;
 			height: 100%;

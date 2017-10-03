@@ -1,10 +1,15 @@
 
 {{#each bars as |bar index|}}
 <div class="meter animate" id="bar_{{index}}">
-    {{#if (gte bar.percentageValue 100)}}
-    <span style="width:100%;"><span style="width:100%;text-align:center;">{{bar.percentageValue}}%</span></span>
+    {{#if (gte bar.value 100)}}
+      {{#if (gte bar.value bar.limit)}}
+        <span style="width:100%;"><span class="col-red">{{bar.value}}%</span></span>
+      {{else}}
+        <span style="width:100%;"><span class="col-green">{{bar.value}}%</span></span>
+      {{/if}}
+
     {{else}}
-    <span style="width:{{bar.percentageValue}}%;"><span style="width:100%;text-align:center;">{{bar.percentageValue}}%  </span></span>
+    <span style="width:{{bar.value}}%;"><span class="col-green">{{bar.value}}%  </span></span>
     {{/if}}
 </div>
 {{/each}}

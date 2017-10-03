@@ -9,6 +9,7 @@ export default Model.extend({
   text:Ember.computed('uniqueId', function(){
     return 'Progress Bar: #'+this.get('uniqueId');
   }),
+  isExceedLimit: DS.attr(),
   percentageValue: Ember.computed('value', 'limit', function(){
       return Math.floor((this.get('value') * 100)/this.get('limit'));
   })
